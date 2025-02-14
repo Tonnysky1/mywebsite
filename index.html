@@ -1,93 +1,373 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genaro Antonio Quintanar González</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        nav {
-            background: #444;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            padding: 0.5rem;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 1rem;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #333;
-            color: #fff;
-            margin-top: 2rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GQ Servicios Profesionales</title>
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet" />
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Genaro Antonio Quintanar González</h1>
-        <p>Estudiante de Derecho en UVEG</p>
-    </header>
+  <!-- Encabezado -->
+  <header>
+    <h1>GQ Servicios Profesionales</h1>
+    <div class="menu">
+      <button id="menu-toggle" aria-label="Abrir menú">☰ Menu</button>
+    </div>
+  </header>
 
-    <nav>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#habilidades">Habilidades</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+  <!-- Barra lateral (Menú) -->
+  <nav id="sidebar" class="sidebar">
+    <h2>Menú</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="lista_casos.html">Casos</a></li>
+      <li><a href="#">Tareas</a></li>
+      <li><a href="#">Clientes</a></li>
+      <li><a href="#">Configuración</a></li>
+      <li><a href="agregar_caso.html">Agregar Caso</a></li>
+    </ul>
+  </nav>
 
-    <main>
-        <section id="sobre-mi">
-            <h2>Sobre mí</h2>
-            <p>Hola, mi nombre es Genaro Antonio Quintanar González. Soy estudiante de Derecho en la Universidad Virtual del Estado de Guanajuato (UVEG). Me apasiona el estudio de las leyes y la justicia, y estoy comprometido con contribuir a una sociedad más justa y equitativa.</p>
-        </section>
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <!-- Calendario -->
+    <section class="calendar-container">
+      <h2>Calendario</h2>
+      <div id="calendar"></div>
+    </section>
 
-        <section id="habilidades">
-            <h2>Habilidades</h2>
-            <ul>
-                <li>Fluidez en inglés y español.</li>
-                <li>Conocimiento en análisis legal y argumentación jurídica.</li>
-                <li>Habilidad para aprender y adaptarme a nuevas áreas del Derecho.</li>
-            </ul>
-        </section>
+    <!-- Resumen de casos -->
+    <section class="stat-box">
+      <h2>Resumen de Casos</h2>
+      <p>Información general sobre los casos en curso.</p>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">15</span>
+          <span class="stat-label">Casos Activos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Casos Completados</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Casos Urgentes</span>
+        </div>
+      </div>
+    </section>
 
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>Si deseas ponerte en contacto conmigo, puedes escribirme al correo electrónico: <a href="mailto:genaro.quintanar@example.com">genaro.quintanar@example.com</a>.</p>
-        </section>
-    </main>
+    <!-- Fechas clave -->
+    <section class="upcoming-dates">
+      <h2>Fechas Clave</h2>
+      <p>Recordatorios de fechas importantes.</p>
+      <ul class="dates-list">
+        <li>20/10/2023 - Audiencia preliminar</li>
+        <li>25/10/2023 - Vencimiento de plazo</li>
+        <li>30/10/2023 - Presentación de documentos</li>
+      </ul>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Genaro Antonio Quintanar González. Todos los derechos reservados.</p>
-    </footer>
+    <!-- Acciones -->
+    <section class="actions">
+      <h2>Acciones</h2>
+      <p>Acciones pendientes y próximas.</p>
+      <ul class="actions-list">
+        <li>Revisar documentos del caso #123</li>
+        <li>Preparar alegatos para el caso #456</li>
+        <li>Contactar al cliente del caso #789</li>
+      </ul>
+    </section>
+
+    <!-- Filtros de búsqueda -->
+    <section class="filters">
+      <h2>Filtros de Búsqueda</h2>
+      <div class="filter-group">
+        <label for="search">Buscar casos:</label>
+        <input type="text" id="search" placeholder="Buscar casos..." />
+      </div>
+      <div class="filter-group">
+        <label for="status-filter">Filtrar por estatus:</label>
+        <select id="status-filter">
+          <option value="all">Todos</option>
+          <option value="active">Activos</option>
+          <option value="closed">Cerrados</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Notificaciones -->
+    <section class="notifications">
+      <h2>Notificaciones</h2>
+      <ul id="notification-list">
+        <!-- Notificaciones dinámicas se agregarán aquí -->
+      </ul>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <!-- FullCalendar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js" defer></script>
+  <!-- Script personalizado -->
+  <script src="scripts.js" defer></script>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Casos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Lista de Casos</h1>
+    <div class="menu">
+      <a href="index.html">Volver al inicio</a>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <h2>Buscar Casos</h2>
+    
+    <!-- Barra de búsqueda y filtros -->
+    <div class="filters">
+      <input type="text" id="search-input" placeholder="Buscar por nombre o cliente...">
+      
+      <select id="status-filter">
+        <option value="">Todos los Estatus</option>
+        <option value="Por presentar">Por presentar</option>
+        <option value="Presentado">Presentado</option>
+        <option value="Radicación">Radicación</option>
+        <option value="Emplazamiento">Emplazamiento</option>
+        <option value="Contestación">Contestación</option>
+        <option value="Pruebas">Pruebas</option>
+        <option value="Alegatos">Alegatos</option>
+        <option value="Sentencia">Sentencia</option>
+        <option value="Completado">Completado</option>
+      </select>
+
+      <select id="tipo-caso-filter">
+        <option value="">Todos los Tipos</option>
+        <option value="civil">Civil</option>
+        <option value="penal">Penal</option>
+        <option value="laboral">Laboral</option>
+        <option value="familiar">Familiar</option>
+        <option value="mercantil">Mercantil</option>
+      </select>
+
+      <input type="date" id="date-filter">
+      <button onclick="filterCases()">Filtrar</button>
+    </div>
+
+    <!-- Lista de casos -->
+    <table id="cases-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Cliente</th>
+          <th>Estatus</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="cases-list">
+        <!-- Aquí se llenarán los casos dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="filtros.js"></script>
+  <script src="casos.js"></script> <!-- Nuevo archivo para manejar los casos -->
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agregar Nuevo Caso</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Agregar Nuevo Caso</h1>
+    <div class="menu">
+      <button onclick="window.location.href='index.html'">
+        Volver a la Lista
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenedor del formulario -->
+  <div class="form-container">
+    <form id="form-caso">
+      <!-- Sección de información básica -->
+      <fieldset>
+        <legend>Información Básica</legend>
+
+        <div class="form-group">
+          <label for="cliente">Nombre del Cliente:</label>
+          <input type="text" id="cliente" name="cliente" required />
+        </div>
+
+        <div class="form-group">
+          <label for="abogado">Abogado Responsable:</label>
+          <input type="text" id="abogado" name="abogado" required />
+        </div>
+
+        <div class="form-group">
+          <label for="estatus">Estatus:</label>
+          <select id="estatus" name="estatus" required>
+            <option value="por_presentar">Por Presentar</option>
+            <option value="emplazamiento">Emplazamiento</option>
+            <option value="sentencia">Sentencia</option>
+            <option value="archivado">Archivado</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="foja">Foja:</label>
+          <input type="number" id="foja" name="foja" required min="1" />
+        </div>
+
+        <div class="form-group">
+          <label for="fecha_presentacion">Fecha de Presentación:</label>
+          <input type="date" id="fecha_presentacion" name="fecha_presentacion" required />
+        </div>
+      </fieldset>
+
+      <!-- Sección de detalles adicionales -->
+      <fieldset>
+        <legend>Detalles Adicionales</legend>
+
+        <div class="form-group">
+          <label for="tipo_caso">Tipo de Caso:</label>
+          <select id="tipo_caso" name="tipo_caso" required>
+            <option value="civil">Civil</option>
+            <option value="penal">Penal</option>
+            <option value="laboral">Laboral</option>
+            <option value="familiar">Familiar</option>
+            <option value="mercantil">Mercantil</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="juzgado">Juzgado:</label>
+          <input type="text" id="juzgado" name="juzgado" required />
+        </div>
+
+        <div class="form-group">
+          <label for="numero_expediente">Número de Expediente:</label>
+          <input type="text" id="numero_expediente" name="numero_expediente" required pattern="EXP-\d{4}-\d{3}" title="Formato: EXP-AAAA-NNN" />
+        </div>
+
+        <div class="form-group">
+          <label for="notas">Notas Adicionales:</label>
+          <textarea id="notas" name="notas" rows="4"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Sección de documentos -->
+      <fieldset>
+        <legend>Documentos Adjuntos</legend>
+        <div class="form-group">
+          <label for="documentos">Subir Documentos:</label>
+          <input type="file" id="documentos" name="documentos" multiple accept=".pdf,.doc,.docx,.jpg,.png" />
+          <small>Formatos permitidos: PDF, DOC, DOCX, JPG, PNG (Máx. 5MB por archivo).</small>
+        </div>
+      </fieldset>
+
+      <!-- Botones del formulario -->
+      <div class="form-buttons">
+        <button type="submit">Guardar Caso</button>
+        <button type="reset">Limpiar Formulario</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="formulario.js"></script> <!-- Nuevo archivo para manejar el formulario -->
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles del Caso</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Detalles del Caso</h1>
+    <div class="menu">
+      <a href="lista_casos.html">Volver a la lista</a>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <h2 id="case-title"></h2>
+    <p><strong>Cliente:</strong> <span id="case-client"></span></p>
+    <p><strong>Estatus:</strong> <span id="case-status"></span></p>
+    <p><strong>Fecha:</strong> <span id="case-date"></span></p>
+    <p><strong>Foja:</strong> <span id="case-page"></span></p>
+    <p><strong>Notas:</strong></p>
+    <textarea id="case-notes" rows="4" placeholder="Agregar notas..."></textarea>
+    <button onclick="guardarNotas()">Guardar Notas</button>
+  </div>
+
+  <script src="detalle_caso.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GQ Servicios Profesionales</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>GQ Servicios Profesionales</h1>
+    <div class="menu">
+      <button>Menu</button>
+    </div>
+  </header>
+
+  <div class="sidebar">
+    <h2>Menú</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="lista_casos.html">Casos</a></li>
+      <li><a href="#">Tareas</a></li>
+      <li><a href="#">Clientes</a></li>
+      <li><a href="#">Configuración</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <!-- Contenedor para el calendario -->
+    <div class="calendar-container">
+      <div id="calendar"></div>
+    </div>
+  </div>
+
+  <!-- FullCalendar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+
+  <!-- Configuración y funcionamiento del calendario -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var calendarEl = document.getElementById("calendar");
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: "day
