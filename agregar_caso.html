@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agregar Nuevo Caso</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Agregar Nuevo Caso</h1>
+    <div class="menu">
+      <button onclick="window.location.href='index.html'">
+        Volver a la Lista
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenedor del formulario -->
+  <div class="form-container">
+    <form id="form-caso">
+      <!-- Sección de información básica -->
+      <fieldset>
+        <legend>Información Básica</legend>
+
+        <div class="form-group">
+          <label for="cliente">Nombre del Cliente:</label>
+          <input type="text" id="cliente" name="cliente" required />
+        </div>
+
+        <div class="form-group">
+          <label for="abogado">Abogado Responsable:</label>
+          <input type="text" id="abogado" name="abogado" required />
+        </div>
+
+        <div class="form-group">
+          <label for="estatus">Estatus:</label>
+          <select id="estatus" name="estatus" required>
+            <option value="por_presentar">Por Presentar</option>
+            <option value="emplazamiento">Emplazamiento</option>
+            <option value="sentencia">Sentencia</option>
+            <option value="archivado">Archivado</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="foja">Foja:</label>
+          <input type="number" id="foja" name="foja" required min="1" />
+        </div>
+
+        <div class="form-group">
+          <label for="fecha_presentacion">Fecha de Presentación:</label>
+          <input type="date" id="fecha_presentacion" name="fecha_presentacion" required />
+        </div>
+      </fieldset>
+
+      <!-- Sección de detalles adicionales -->
+      <fieldset>
+        <legend>Detalles Adicionales</legend>
+
+        <div class="form-group">
+          <label for="tipo_caso">Tipo de Caso:</label>
+          <select id="tipo_caso" name="tipo_caso" required>
+            <option value="civil">Civil</option>
+            <option value="penal">Penal</option>
+            <option value="laboral">Laboral</option>
+            <option value="familiar">Familiar</option>
+            <option value="mercantil">Mercantil</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="juzgado">Juzgado:</label>
+          <input type="text" id="juzgado" name="juzgado" required />
+        </div>
+
+        <div class="form-group">
+          <label for="numero_expediente">Número de Expediente:</label>
+          <input type="text" id="numero_expediente" name="numero_expediente" required pattern="EXP-\d{4}-\d{3}" title="Formato: EXP-AAAA-NNN" />
+        </div>
+
+        <div class="form-group">
+          <label for="notas">Notas Adicionales:</label>
+          <textarea id="notas" name="notas" rows="4"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Sección de documentos -->
+      <fieldset>
+        <legend>Documentos Adjuntos</legend>
+        <div class="form-group">
+          <label for="documentos">Subir Documentos:</label>
+          <input type="file" id="documentos" name="documentos" multiple accept=".pdf,.doc,.docx,.jpg,.png" />
+          <small>Formatos permitidos: PDF, DOC, DOCX, JPG, PNG (Máx. 5MB por archivo).</small>
+        </div>
+      </fieldset>
+
+      <!-- Botones del formulario -->
+      <div class="form-buttons">
+        <button type="submit">Guardar Caso</button>
+        <button type="reset">Limpiar Formulario</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="formulario.js"></script> <!-- Nuevo archivo para manejar el formulario -->
+</body>
+</html>

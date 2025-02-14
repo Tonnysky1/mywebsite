@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GQ Servicios Profesionales</title>
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet" />
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <h1>GQ Servicios Profesionales</h1>
+    <div class="menu">
+      <button id="menu-toggle" aria-label="Abrir menú">☰ Menu</button>
+    </div>
+  </header>
+
+  <!-- Barra lateral (Menú) -->
+  <nav id="sidebar" class="sidebar">
+    <h2>Menú</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="lista_casos.html">Casos</a></li>
+      <li><a href="#">Tareas</a></li>
+      <li><a href="#">Clientes</a></li>
+      <li><a href="#">Configuración</a></li>
+      <li><a href="agregar_caso.html">Agregar Caso</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <!-- Calendario -->
+    <section class="calendar-container">
+      <h2>Calendario</h2>
+      <div id="calendar"></div>
+    </section>
+
+    <!-- Resumen de casos -->
+    <section class="stat-box">
+      <h2>Resumen de Casos</h2>
+      <p>Información general sobre los casos en curso.</p>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">15</span>
+          <span class="stat-label">Casos Activos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Casos Completados</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Casos Urgentes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fechas clave -->
+    <section class="upcoming-dates">
+      <h2>Fechas Clave</h2>
+      <p>Recordatorios de fechas importantes.</p>
+      <ul class="dates-list">
+        <li>20/10/2023 - Audiencia preliminar</li>
+        <li>25/10/2023 - Vencimiento de plazo</li>
+        <li>30/10/2023 - Presentación de documentos</li>
+      </ul>
+    </section>
+
+    <!-- Acciones -->
+    <section class="actions">
+      <h2>Acciones</h2>
+      <p>Acciones pendientes y próximas.</p>
+      <ul class="actions-list">
+        <li>Revisar documentos del caso #123</li>
+        <li>Preparar alegatos para el caso #456</li>
+        <li>Contactar al cliente del caso #789</li>
+      </ul>
+    </section>
+
+    <!-- Filtros de búsqueda -->
+    <section class="filters">
+      <h2>Filtros de Búsqueda</h2>
+      <div class="filter-group">
+        <label for="search">Buscar casos:</label>
+        <input type="text" id="search" placeholder="Buscar casos..." />
+      </div>
+      <div class="filter-group">
+        <label for="status-filter">Filtrar por estatus:</label>
+        <select id="status-filter">
+          <option value="all">Todos</option>
+          <option value="active">Activos</option>
+          <option value="closed">Cerrados</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Notificaciones -->
+    <section class="notifications">
+      <h2>Notificaciones</h2>
+      <ul id="notification-list">
+        <!-- Notificaciones dinámicas se agregarán aquí -->
+      </ul>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <!-- FullCalendar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js" defer></script>
+  <!-- Script personalizado -->
+  <script src="scripts.js" defer></script>
+</body>
+</html>

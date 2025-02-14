@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Casos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Lista de Casos</h1>
+    <div class="menu">
+      <a href="index.html">Volver al inicio</a>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <h2>Buscar Casos</h2>
+    
+    <!-- Barra de búsqueda y filtros -->
+    <div class="filters">
+      <input type="text" id="search-input" placeholder="Buscar por nombre o cliente...">
+      
+      <select id="status-filter">
+        <option value="">Todos los Estatus</option>
+        <option value="Por presentar">Por presentar</option>
+        <option value="Presentado">Presentado</option>
+        <option value="Radicación">Radicación</option>
+        <option value="Emplazamiento">Emplazamiento</option>
+        <option value="Contestación">Contestación</option>
+        <option value="Pruebas">Pruebas</option>
+        <option value="Alegatos">Alegatos</option>
+        <option value="Sentencia">Sentencia</option>
+        <option value="Completado">Completado</option>
+      </select>
+
+      <select id="tipo-caso-filter">
+        <option value="">Todos los Tipos</option>
+        <option value="civil">Civil</option>
+        <option value="penal">Penal</option>
+        <option value="laboral">Laboral</option>
+        <option value="familiar">Familiar</option>
+        <option value="mercantil">Mercantil</option>
+      </select>
+
+      <input type="date" id="date-filter">
+      <button onclick="filterCases()">Filtrar</button>
+    </div>
+
+    <!-- Lista de casos -->
+    <table id="cases-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Cliente</th>
+          <th>Estatus</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="cases-list">
+        <!-- Aquí se llenarán los casos dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="filtros.js"></script>
+  <script src="casos.js"></script> <!-- Nuevo archivo para manejar los casos -->
+</body>
+</html>
